@@ -1,0 +1,23 @@
+idf_component_register(
+    SRCS
+        "main.cpp"
+        "DS1307.cpp"
+        "SSD1306.cpp"
+        "Button.cpp"
+        "NTPManager.cpp"
+        "AlarmManager.cpp"
+        "Stopwatch.cpp"
+        "unit_tests.cpp"
+    INCLUDE_DIRS
+        "."
+    REQUIRES
+        driver
+        freertos
+        esp_wifi
+        nvs_flash
+        esp_netif
+        esp_sntp
+        esp_timer
+        log
+)
+

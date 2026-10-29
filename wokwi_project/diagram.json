@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "author": "ESP32 ESP-IDF v6 Digital Clock Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 80,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc",
+      "top": -120,
+      "left": -150,
+      "attrs": {
+        "initTime": "now"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -120,
+      "left": 60,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_mode",
+      "top": 280,
+      "left": -150,
+      "attrs": {
+        "color": "blue",
+        "label": "MODE"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_inc",
+      "top": 280,
+      "left": -50,
+      "attrs": {
+        "color": "green",
+        "label": "INC"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_set",
+      "top": 280,
+      "left": 50,
+      "attrs": {
+        "color": "yellow",
+        "label": "SET"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_lap",
+      "top": 280,
+      "left": 150,
+      "attrs": {
+        "color": "purple",
+        "label": "LAP"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 120,
+      "left": 200,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:21",
+      "rtc:SDA",
+      "cyan",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:22",
+      "rtc:SCL",
+      "yellow",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "rtc:5V",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "rtc:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:21",
+      "oled:SDA",
+      "cyan",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:22",
+      "oled:SCL",
+      "yellow",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "oled:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:12",
+      "btn_mode:1.1",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "btn_mode:2.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:13",
+      "btn_inc:1.1",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "btn_inc:2.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:14",
+      "btn_set:1.1",
+      "yellow",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "btn_set:2.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:27",
+      "btn_lap:1.1",
+      "purple",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "btn_lap:2.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:25",
+      "buzzer:1",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "buzzer:2",
+      "black",
+      [
+        "v0"
+      ]
+    ]
+  ]
+}
